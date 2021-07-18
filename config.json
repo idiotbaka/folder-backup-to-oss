@@ -1,0 +1,11 @@
+{
+    "backup_folder_path": "",
+    "access_key_id": "",
+    "access_key_secret": "",
+    "endpoint": "",
+    "bucket": "",
+    "bukket_path": "backup-folder",
+    "upload_filename_prefix": "backup",
+    "backup_time": "00:00",
+    "auto_delete_local": true
+}

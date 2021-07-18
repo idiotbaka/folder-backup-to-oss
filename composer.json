@@ -1,0 +1,13 @@
+{
+    "name": "baka/oss-backup",
+    "description": "Automatically compress backup folder to OSS.",
+    "authors": [
+        {
+            "name": "idiotbaka",
+            "email": "idiotbaka@outlook.com"
+        }
+    ],
+    "require": {
+        "aliyuncs/oss-sdk-php": "^2.4"
+    }
+}
