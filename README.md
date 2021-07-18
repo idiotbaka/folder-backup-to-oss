@@ -34,5 +34,4 @@ PHP 实现的自动每日压缩备份文件夹至 oss，支持 Windows 和 linux
 | auto_delete_local      | 是否在上传 OSS 完成后自动删除本地压缩文件，填`true` 或 `false` | true                                                         |
 
 ### 运行效果
-
-![https://github.com/idiotbaka/folder-backup-to-oss/blob/main/images/img1.jpg?raw=true]()
+![运行效果](https://github.com/idiotbaka/folder-backup-to-oss/blob/main/images/img1.jpg?raw=true)
