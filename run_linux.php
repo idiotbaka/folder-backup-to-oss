@@ -58,17 +58,16 @@ while(true) {
 	if($is_windows) {
 		$file_path = __dir__.'\\'.$object;
 		$zip_folder = shell_exec('"'.__dir__.'\7z.exe" a -r "'.$file_path.'" "'.$config['backup_folder_path'].'\*"');
-		echo $zip_folder;
 	}
 	// unix
 	else {
 		$file_path = __dir__.'/'.$object;
 		$zip_folder = shell_exec('zip -r "'.$file_path.'" "'.$config['backup_folder_path'].'"');
-		echo $zip_folder;
 	}
 
 	// 判断是否压缩成功	
 	if(!file_exists($file_path)) {
+		echo $zip_folder;
 		echo '文件夹'.$config['backup_folder_path'].'压缩失败，请查看上述错误日志。'.PHP_EOL;
 		continue;
 	}
