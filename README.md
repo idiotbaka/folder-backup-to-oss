@@ -1,5 +1,5 @@
 ### 介绍
-PHP 实现的自动每日压缩备份文件夹至 oss，支持 Windows 和 linux。
+PHP 实现的自动每日压缩备份文件夹至 oss，支持 Windows 和 linux，带有上传限速功能。
 
 ### 使用方式（Windows）
 
@@ -21,17 +21,18 @@ PHP 实现的自动每日压缩备份文件夹至 oss，支持 Windows 和 linux
 
 ### config.json 说明
 
-| key                    | 描述                                                         | 示例                                                         |
-| ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| backup_folder_path     | 要压缩备份的目录地址                                         | 【win】D:\\\\folder1\\\\need-backup<br />【linux】/home/ubuntu/folder/need-backup |
-| access_key_id          | OSS 的 AccessKeyId，在 https://usercenter.console.aliyun.com/#/manage/ak 查询 |                                                              |
-| access_key_secret      | OSS 的 AccessKeySecret，在 https://usercenter.console.aliyun.com/#/manage/ak 查询 |                                                              |
-| endpoint               | OSS 的 bucket 所在 endpoint                                  | http://oss-cn-beijing.aliyuncs.com                           |
-| bucket                 | OSS的 bucket 名称，需要提前创建好                            | backup-bucket                                                |
-| bukket_path            | 要存储在 bucket 的哪个路径，存储在根目录则不填               | backup-folder                                                |
-| upload_filename_prefix | 存储到 bucket 的文件前缀，格式为  `前缀-日期.zip`，例如  `backup-2021-07-18_23_43_03.zip` | backup                                                       |
-| backup_time            | 运行备份的时间（小时：分钟），例如每天3点运行则是`03:00`     | 03:00                                                        |
-| auto_delete_local      | 是否在上传 OSS 完成后自动删除本地压缩文件，填`true` 或 `false` | true                                                         |
+| key                       | 描述                                                         | 示例                                                         |
+| ------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| backup_folder_path        | 要压缩备份的目录地址                                         | 【win】D:\\\\folder1\\\\need-backup<br />【linux】/home/ubuntu/folder/need-backup |
+| access_key_id             | OSS 的 AccessKeyId，在 https://usercenter.console.aliyun.com/#/manage/ak 查询 |                                                              |
+| access_key_secret         | OSS 的 AccessKeySecret，在 https://usercenter.console.aliyun.com/#/manage/ak 查询 |                                                              |
+| endpoint                  | OSS 的 bucket 所在 endpoint                                  | http://oss-cn-beijing.aliyuncs.com                           |
+| bucket                    | OSS的 bucket 名称，需要提前创建好                            | backup-bucket                                                |
+| bukket_path               | 要存储在 bucket 的哪个路径，存储在根目录则不填               | backup-folder                                                |
+| upload_filename_prefix    | 存储到 bucket 的文件前缀，格式为  `前缀-日期.zip`，例如  `backup-2021-07-18_23_43_03.zip` | backup                                                       |
+| backup_time               | 运行备份的时间（小时：分钟），例如每天3点运行则是`03:00`     | 03:00                                                        |
+| auto_delete_local         | 是否在上传 OSS 完成后自动删除本地压缩文件，填`true` 或 `false` | true                                                         |
+| upload_persecond_kb_limit | 上传速率限制，单位为kb，填`0`则为不限速。防止占满带宽，影响到线上服务 | 1024                                                         |
 
 ### 运行效果
 ![运行效果](https://github.com/idiotbaka/folder-backup-to-oss/blob/main/images/img1.jpg?raw=true)

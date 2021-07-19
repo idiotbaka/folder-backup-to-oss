@@ -113,10 +113,22 @@ function oss_uplaod($object, $filePath) {
 	if($config['bukket_path']) {
 		$object = $config['bukket_path'].'/'.$object;
 	}
+	$option = null;
+	if($config['upload_persecond_kb_limit'] > 0) {
+		$option = [
+    		OssClient::OSS_TRAFFIC_LIMIT => $config['upload_persecond_kb_limit']*1024*8
+    	];
+    	echo '以'.($config['upload_persecond_kb_limit']).'kb/s的速率上传中...'.PHP_EOL;
+	}
 
 	try{
 	    $ossClient = new OssClient($accessKeyId, $accessKeySecret, $endpoint);
-	    $result = $ossClient->uploadFile($bucket, $object, $filePath);
+	    $result = $ossClient->uploadFile(
+	    	$bucket,
+	    	$object,
+	    	$filePath,
+	    	$option
+	    );
 	    return $result;
 	} catch(OssException $e) {
 	    printf(__FUNCTION__ . ": FAILED\n");

@@ -7,5 +7,6 @@
     "bukket_path": "backup-folder",
     "upload_filename_prefix": "backup",
     "backup_time": "00:00",
-    "auto_delete_local": true
+    "auto_delete_local": true,
+    "upload_persecond_kb_limit": 1024
 }
